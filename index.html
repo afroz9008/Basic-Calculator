@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=7">
+	<title>Calculator Using JQuery | Afroz</title>
+	<style>
+		body{
+			background-clip: border-box;
+			background-color: tomato;
+			color:white;
+		}
+		
+		.title{
+			position: absolute;
+			background-color: red;
+			width:99%;
+			height: 7%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			font-size: 30px;
+			color:blue;
+			border :2px solid blue;
+			opacity: 0.5;
+		}
+		.contain{
+			position: absolute;
+			background: radial-gradient(circle,red,tomato);
+			width: 550px;
+			height: 400px;
+			padding-top: 40px;
+			margin-top: 110px;
+			margin-left: 400px;
+			display: none;
+		}
+		#txt{
+			width: 350px;
+			height: 30px;
+			text-align: right;
+			font-size: 25px;	
+			color: black;
+			background: white;
+			border:0;
+
+		}
+		#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b0{
+			background: transparent;
+			border:2px solid orange;
+			border-radius: 50px;
+			width:70px;
+			margin-left: 10px;
+			height: 40px;
+			cursor: pointer;
+			color:white;
+			font-size: 20px;
+		}
+
+		#bplus,#bminus,#bequal,#bdot,#bdivide,#bmulti,#bclear{
+			background: darkred;
+			border:2px solid orange;
+			border-radius: 50px;
+			width:70px;
+			margin-left: 10px;
+			height: 40px;
+			cursor: pointer;
+			color:white;
+			font-size: 20px;
+		}
+		#b1:hover,#b2:hover,#b3:hover,#b4:hover,#b5:hover,#b6:hover,#b7:hover,#b8:hover,#b9:hover,#b0:hover{
+			color:black;
+			background: blue;
+		}
+
+#bplus:hover,#bminus:hover,#bequal:hover,#bdot:hover,#bdivide:hover,#bmulti:hover,#bclear:hover{
+			color:red;
+			background: yellow;
+		}
+
+
+		@media screen and (max-width: 600px) {
+			body{
+				background:black;
+				height:100%;
+				width:100%;
+			}
+			.title{
+				position: absolute;
+			background-color: red;
+			width:97%;
+			height: 5%;
+			padding-top: 3%;
+			padding-bottom: 2%;
+				font-size: 20px;
+				color:blue;
+				margin-left:-4px;
+			border :2px solid white;
+			opacity: 1;
+			}
+
+			.contain{
+			position: absolute;
+			background: radial-gradient(circle,rgb(47, 219, 47),green);
+			width: 350px;
+			height: 400px;
+			padding-top: 30px;
+			margin-top: 90px;
+			margin-left: -3px;
+			display: none;
+		}
+		#footer{
+			margin-top:157%;
+		}
+		}
+	</style>
+</head>
+<body>
+	<center>
+	<div id="container">
+		<div class="title">Calculator Using JQuery</div>
+		<div class="contain" id="contain">
+			BASIC CALCULATOR
+<pre>
+<input type="text" id="txt" readonly>
+
+
+			       <input type="button" id="bclear" class="btn" value="Clear">
+
+<input type="button" id="b7" class="btn" value="7"><input type="button" id="b8" class="btn" value="8"><input type="button" class="btn" id="b9" value="9"><input type="button" id="bmulti" class="btn" value="*">
+
+<input type="button" id="b4" class="btn" value="4"><input type="button" id="b5" class="btn" value="5"><input type="button" id="b6" class="btn" value="6"><input type="button" id="bdivide" class="btn" value="/">
+
+<input type="button" id="b1" class="btn" value="1"><input type="button" id="b2" class="btn" value="2"><input type="button" id="b3" class="btn" value="3"><input type="button" id="bminus" class="btn"  value="-">
+
+<input type="button" id="b0" class="btn" value="0"><input type="button" id="bdot" class="btn" value="."><input type="button" id="bequal" class="btn" value="="><input type="button" id="bplus" class="btn" value="+">
+
+</pre>
+		</div>
+	</div>
+	<div class="title" id="footer">CREATED BY SORATHIYA AFROZ</div>
+	</center>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$("document").ready(function(){
+			$("#contain").fadeIn(3000);
+			var n1,n2,sym;
+			$(document).on("click",".btn",function(e){
+				
+				if($(this).val() == "+") //||  || $(this).val()=="*" || $(this).val()=="/" || )
+				{
+					n1=$("#txt").val();	
+					sym=$(this).val();
+					$("#txt").val("");
+				}
+				else if($(this).val()=="-")
+				{
+					n1=$("#txt").val();	
+					sym=$(this).val();
+					$("#txt").val("");
+				}
+				else if($(this).val()=="/")
+				{
+					n1=$("#txt").val();	
+					sym=$(this).val();
+					$("#txt").val("");
+				}
+				else if($(this).val()=="*")
+				{
+					n1=$("#txt").val();	
+					sym=$(this).val();
+					$("#txt").val("");
+				}
+				else if($(this).val() == "=")
+				{
+					n2=$("#txt").val();
+					if(sym=="+")
+					{
+						$("#txt").val(parseFloat(n1)+parseInt(n2));	
+					}
+					else if(sym=="-")
+					{
+						$("#txt").val(parseFloat(n1)-parseInt(n2));	
+					}
+					else if(sym=="/")
+					{
+						$("#txt").val(parseFloat(n1)/parseInt(n2));	
+					}
+					else if(sym=="*")
+					{
+						$("#txt").val(parseFloat(n1)*parseInt(n2));	
+					}
+					
+				}
+				else if($(this).val()=="Clear")
+				{
+					$("#txt").val("");
+				}
+				else
+				{
+					$("#txt").val($("#txt").val()+$(this).val());	
+				}
+				
+			});
+		});
+	</script>
+</body>
+</html>
